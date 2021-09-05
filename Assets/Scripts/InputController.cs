@@ -16,6 +16,9 @@ public class InputController : MonoBehaviour
         Movement();
         CheckGrap();
         Jumping();
+        CheckUngrap();
+        GetImpulse();
+        GetShoot();
     }
     public void Movement()
     {
@@ -34,7 +37,10 @@ public class InputController : MonoBehaviour
         {
             player.Grap();
         }
-        else
+    }
+    public void CheckUngrap()
+    {
+        if (Input.GetMouseButton(1))
         {
             player.Ungrap();
         }
@@ -45,5 +51,20 @@ public class InputController : MonoBehaviour
         {
             player.Jump();
        }
+    }
+    public void GetImpulse()
+    {
+        if (Input.GetButtonDown("VImpulse"))
+        {
+            Debug.Log("Fuerza");
+            player.SetForce();
+        }
+    }
+    public void GetShoot()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            player.Shoot();
+        }
     }
 }
